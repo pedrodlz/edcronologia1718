@@ -18,7 +18,7 @@ public:
   
 	Cronologia(void);
   
-  Cronologia();
+  	Cronologia();
 
 	Cronologia(const Cronologia & otra);	
 
@@ -26,7 +26,7 @@ public:
 	
 	void EliminaFecha(int anio);
   
-  void UnionCrono(Cronologia cron1, Cronologia cron2);
+  	void UnionCrono(Cronologia cron1, Cronologia cron2);
 
 
 private:
