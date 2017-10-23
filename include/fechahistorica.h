@@ -11,7 +11,7 @@ class FechaHistorica{
 
 
 private:
-	
+
 	int anio;
 
 	Vector_Dinamico<string> sucesos;
@@ -23,7 +23,7 @@ public:
 
 	FechaHistorica(const int anio);
 
-	FechaHistorica(const FechaHistorica & otra);	
+	FechaHistorica(const FechaHistorica & otra);
 
 	~FechaHistorica(void);
 
@@ -34,14 +34,10 @@ public:
 	int GetNumSucesos(void) const;
 
 	void SetAnio(const int anio);
-	
+
 	void AniadeSuceso(string un_suceso);
-	
+
 	void EliminaSuceso(int indice);
-
-
-private:
-	void LiberarMemoria (void);
 
 
 };
