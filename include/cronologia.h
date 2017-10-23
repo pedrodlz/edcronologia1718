@@ -12,7 +12,7 @@ class Cronologia{
 
 private:
 	
-	Vector_Dinamico<FechaHistorica> anios;
+	Vector_Dinamico<FechaHistorica> fechas;
 
 public:
   
