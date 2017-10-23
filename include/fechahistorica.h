@@ -34,6 +34,10 @@ public:
 	int GetNumSucesos(void) const;
 
 	void SetAnio(const int anio);
+	
+	void AniadeSuceso(string un_suceso);
+	
+	void EliminaSuceso(int indice);
 
 
 private:

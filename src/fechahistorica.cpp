@@ -49,6 +49,23 @@ void FechaHistorica::SetAnio(int anio)
 	this->anio = anio;
 }
 
+void FechaHistorica::AniadeSuceso(string suceso)
+{
+	sucesos.resize(sucesos.size()+1);
+	
+	sucesos[sucesos.size()] = suceso;
+}
+
+void FechaHistorica::EliminaSuceso(int i)
+{
+	int p;
+	
+	for(p = i; p < sucesos.size() - 1; p++)
+		sucesos[p] = sucesos[p + 1];
+	
+	sucesos.resize(p);
+}
+
 void FechaHistorica::LiberarMemoria(void)
 {
 	if(sucesos.size()){
