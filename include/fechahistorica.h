@@ -39,7 +39,6 @@ public:
 
 	void EliminaSuceso(int indice);
 
-
 };
 
 
