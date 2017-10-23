@@ -26,7 +26,8 @@ FechaHistorica::FechaHistorica(const FechaHistorica & otra)
 
 FechaHistorica::~FechaHistorica(void)
 {
-	LiberarMemoria();
+	anio = 0;
+	num_sucesos = 0;
 }
 
 int FechaHistorica::GetAnio(void) const
@@ -74,4 +75,3 @@ void FechaHistorica::LiberarMemoria(void)
 	}
 }
 
-int main(){return 0 ;}
