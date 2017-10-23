@@ -53,17 +53,27 @@ void FechaHistorica::SetAnio(int anio)
 void FechaHistorica::AniadeSuceso(string suceso)
 {
 	sucesos.resize(sucesos.size()+1);
-	
+
 	sucesos[sucesos.size()] = suceso;
 }
 
 void FechaHistorica::EliminaSuceso(int i)
 {
 	int p;
-	
+
 	for(p = i; p < sucesos.size() - 1; p++)
 		sucesos[p] = sucesos[p + 1];
-	
+
 	sucesos.resize(p);
 }
 
+bool FechaHistorica::BuscaPalabraClave(const string clave)
+{
+	bool encontrada = false;
+	for(int i = 0; i < num_sucesos && !encontrada; i++){
+		if(sucesos[i].find(clave) >= 0){
+			encontrada = true;
+		}
+	}
+	return (encontrada);
+}

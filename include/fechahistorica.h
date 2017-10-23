@@ -39,6 +39,8 @@ public:
 
 	void EliminaSuceso(int indice);
 
+	bool BuscaPalabraClave(const string clave);
+
 };
 
 
