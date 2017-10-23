@@ -67,11 +67,3 @@ void FechaHistorica::EliminaSuceso(int i)
 	sucesos.resize(p);
 }
 
-void FechaHistorica::LiberarMemoria(void)
-{
-	if(sucesos.size()){
-		sucesos.~Vector_Dinamico();
-		num_sucesos = 0;
-	}
-}
-
