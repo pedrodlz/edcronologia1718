@@ -26,12 +26,13 @@ void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 
 void Cronologia::EliminaFecha(int anio)
 {
-	int p;
+/*	int p;
 
 	for(p = i; p < sucesos.size() - 1; p++)
 		sucesos[p] = sucesos[p + 1];
 
 	sucesos.resize(p);
+	*/
 }
 
 void Cronologia::UnionCrono(Cronologia cron1,Cronologia cron2)
