@@ -13,8 +13,11 @@ documentacion:
 
 	
 # ************ Compilación de módulos ************
-$(BIN)/pruebacronologia:
-
+$(BIN)/pruebacronologia: $(OBJ)/pruebacronologia.o
+	g++ -std=c++11 -o programa 
+	
+$(OBJ)/pruebacronologia.o: $(SRC)/fechahistorica.cpp $(SRC)/Vector_Dinamico.tpp $(INCLUDE)/Vector_Dinamico.h
+	g++ -std=c++11 -o $(OBJ)/pruebacronologia.o
 
 
 # ************ Limpieza ************
