@@ -39,7 +39,7 @@ public:
 
 	void EliminaSuceso(int indice);
 
-	bool BuscaPalabraClave(const string clave);
+	Vector_Dinamico<bool> BuscaPalabraClave(const string clave);
 
 };
 
