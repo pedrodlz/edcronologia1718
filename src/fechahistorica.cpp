@@ -40,6 +40,11 @@ Vector_Dinamico<string> FechaHistorica::GetSucesos(void) const
 	return(sucesos);
 }
 
+string FechaHistorica::GetSuceso(const int i) const
+{
+	return(sucesos[i]);
+}
+
 int FechaHistorica::GetNumSucesos(void) const
 {
 	return(num_sucesos);

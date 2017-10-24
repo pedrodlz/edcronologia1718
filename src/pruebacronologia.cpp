@@ -6,7 +6,7 @@
 using namespace std;
 
 int main(int argc, char * argv[]){
-
+/*
   if (argc!=2){
       cout<<"Dime el nombre del fichero con la cronologia"<<endl;
       return 0;
@@ -17,10 +17,14 @@ int main(int argc, char * argv[]){
     cout<<"No puedo abrir el fichero "<<argv[1]<<endl;
     return 0;
    }
-
+*/
    Cronologia mi_cronologia;
    //f>>mi_cronologia; //Cargamos en memoria la cronología.
 
+   FechaHistorica fecha (1998);
+   fecha.AniadeSuceso("Prueba");
+
+   cout << fecha.GetAnio() << "  " << fecha.GetNumSucesos() << "  " << fecha.GetSuceso(0) << endl;
 
    /* Exhibir aquí la funcionalidad programada para el TDA Cronologia / TDA FechaHistorica */
 

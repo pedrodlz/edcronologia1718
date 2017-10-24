@@ -31,6 +31,8 @@ public:
 
 	Vector_Dinamico<string> GetSucesos(void) const;
 
+	string GetSuceso(const int i) const;
+
 	int GetNumSucesos(void) const;
 
 	void SetAnio(const int anio);

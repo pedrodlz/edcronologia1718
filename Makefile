@@ -22,7 +22,7 @@ $(OBJ)/pruebacronologia.o: $(SRC)/pruebacronologia.cpp $(INC)/cronologia.h $(INC
 $(OBJ)/cronologia.o: $(SRC)/cronologia.cpp $(INC)/cronologia.h
 	g++ -c -std=c++11 -I$(INC) -o $(OBJ)/cronologia.o $(SRC)/cronologia.cpp
 
-$(OBJ)/fechahistoria.o: $(SRC)/fechahistorica.cpp $(INC)/fechahistorica.h
+$(OBJ)/fechahistorica.o: $(SRC)/fechahistorica.cpp $(INC)/fechahistorica.h
 	g++ -c -std=c++11 -I$(INC) -o $(OBJ)/fechahistorica.o $(SRC)/fechahistorica.cpp
 
 # ************ Limpieza ************
