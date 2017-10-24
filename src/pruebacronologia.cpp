@@ -28,6 +28,12 @@ int main(int argc, char * argv[]){
    cout << fecha.GetAnio() << "  " << fecha.GetNumSucesos() << "  "
             << fecha.GetSuceso(0) << "  " << fecha.GetSuceso(1) << endl;
 
+    fecha.EliminaSuceso(0);
+
+    cout << fecha.GetAnio() << "  " << fecha.GetNumSucesos() << "  "
+             << fecha.GetSuceso(0) << endl;
+
+
    /* Exhibir aquí la funcionalidad programada para el TDA Cronologia / TDA FechaHistorica */
 
    // Algunas sugerencias:
