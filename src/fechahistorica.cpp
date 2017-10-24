@@ -58,7 +58,6 @@ void FechaHistorica::SetAnio(int anio)
 void FechaHistorica::AniadeSuceso(string suceso)
 {
 	sucesos.resize(sucesos.size()+1);
-
 	sucesos[sucesos.size()] = suceso;
 }
 

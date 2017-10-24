@@ -27,7 +27,7 @@ $(OBJ)/fechahistorica.o: $(SRC)/fechahistorica.cpp $(INC)/fechahistorica.h
 
 # ************ Limpieza ************
 clean :
-	-rm $(OBJ)/* $(SRC)/*~ $(INC)/*~ ./*~
+	-rm $(OBJ)/* $(BIN)/*
 
 mrproper : clean
 	-rm $(BIN)/* doc/html/*

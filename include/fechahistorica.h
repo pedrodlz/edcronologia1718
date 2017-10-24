@@ -14,9 +14,9 @@ private:
 
 	int anio;
 
-	Vector_Dinamico<string> sucesos;
+	Vector_Dinamico<string> sucesos = 0;
 
-	int num_sucesos;
+	int num_sucesos = 0;
 
 public:
 	FechaHistorica(void);
