@@ -6,13 +6,13 @@ using namespace std;
 FechaHistorica::FechaHistorica(void)
 {
 	anio = 0;
-	sucesos = 0;
 	num_sucesos = 0;
 }
 
 FechaHistorica::FechaHistorica(const int anio)
 {
 	this->anio = anio;
+	num_sucesos = 0;
 }
 
 FechaHistorica::FechaHistorica(const FechaHistorica & otra)
@@ -57,8 +57,10 @@ void FechaHistorica::SetAnio(int anio)
 
 void FechaHistorica::AniadeSuceso(string suceso)
 {
-	sucesos.resize(sucesos.size()+1);
-	sucesos[sucesos.size()] = suceso;
+	if(num_sucesos == sucesos.size())
+		sucesos.resize(sucesos.size()+1);
+	sucesos[num_sucesos] = suceso;
+	num_sucesos++;
 }
 
 void FechaHistorica::EliminaSuceso(int i)
