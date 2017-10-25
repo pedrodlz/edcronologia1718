@@ -12,6 +12,7 @@ FechaHistorica::FechaHistorica(void)
 FechaHistorica::FechaHistorica(const int anio)
 {
 	this->anio = anio;
+	sucesos = 1;
 	num_sucesos = 0;
 }
 
@@ -47,7 +48,7 @@ string FechaHistorica::GetSuceso(const int i) const
 
 int FechaHistorica::GetNumSucesos(void) const
 {
-	return(num_sucesos);
+	return(sucesos.size());
 }
 
 void FechaHistorica::SetAnio(int anio)
@@ -69,7 +70,7 @@ void FechaHistorica::EliminaSuceso(int i)
 
 	for(p = i; p < sucesos.size() - 1; p++)
 		sucesos[p] = sucesos[p + 1];
-
+	num_sucesos--;
 	sucesos.resize(p);
 }
 

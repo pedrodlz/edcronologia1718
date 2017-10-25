@@ -25,16 +25,19 @@ public:
 
 	Cronologia(const Cronologia & otra);
 
+	int BuscaFecha(const int anio);
+
 	void AniadeFecha(FechaHistorica una_fecha);
 
 	void EliminaFecha(int anio);
 
   	void UnionCrono(Cronologia cron_aniadir);
-	
+
 	Cronologia CreaSubCronoPalabra(string palabra);
-	
+
 	Cronologia CreaSubCronoIntervalo(int min, int max);
 
+	void LeerCronologia(const char * nombre);
 
 private:
 	void LiberarMemoria (void);

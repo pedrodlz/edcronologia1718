@@ -14,7 +14,7 @@ private:
 
 	int anio;
 
-	Vector_Dinamico<string> sucesos = 0;
+	Vector_Dinamico<string> sucesos;
 
 	int num_sucesos = 0;
 
