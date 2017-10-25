@@ -168,26 +168,34 @@ void Cronologia::LeerCronologia(const char * nombre)
 	ifstream fi (nombre);
 
 	int num;
-
+	char caracter;
+	string anio;
 	string suceso;
 
-	while(fi >> num){
-		FechaHistorica fecha (num);
-		char c = fi.get();
+	while(!cin.eof()){
+
+		for (int = 0; i < 4; i++)
+			anio + = fi.get();
+
+		FechaHistorica fecha (stoi(anio));
+
+		caracter = fi.get();
+
 		suceso = "";
-		while(c != '\n'){
-			c = fi.get();
-			if(c != '#' || c != '\n'){
-				suceso += c;
-			}else{
+
+		while(caracter != '\n'){
+			caracter = fi.get();
+
+			if(caracter == "#")
 				fecha.AniadeSuceso(suceso);
-			}
+
+			suceso += caracter;
 		}
+
 		AniadeFecha(fecha);
 	}
 
 	fi.close();
-
 }
 
 string Cronologia::toString()
