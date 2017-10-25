@@ -47,7 +47,8 @@ void Cronologia::EliminaFecha(int anio)
 	this.fechas.resize(p);	
 }
 
-void Cronologia::UnionCrono(Cronologia cron1,Cronologia cron2)
+void Cronologia::UnionCrono(Cronologia cron_aniadir)
 {
-
+	for(int i = 0; i < cron_aniadir.fechas.size(); i++)
+		this.AniadeFecha(cron_aniadir.fechas[i]);
 }
