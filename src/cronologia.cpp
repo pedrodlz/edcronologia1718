@@ -166,7 +166,7 @@ Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 void Cronologia::LeerCronologia(const char * nombre)
 {
 	ifstream fi (nombre);
-	cout << "hola";
+
 	int num;
 
 	string suceso;
