@@ -31,7 +31,9 @@ public:
 
   	void UnionCrono(Cronologia cron_aniadir);
 	
-	Cronologia CreaSubCronoPalabra(string palabra); 
+	Cronologia CreaSubCronoPalabra(string palabra);
+	
+	Cronologia CreaSubCronoIntervalo(int min, int max);
 
 
 private:
