@@ -78,7 +78,7 @@ Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
 	return sub_cron;	
 }
 
-Cronologia Cronologia::CreaSubCronIntervalo(int min_anio, int max_anio)
+Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 {
 	Cronologia sub_cron;
 
