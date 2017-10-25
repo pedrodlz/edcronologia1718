@@ -172,10 +172,10 @@ void Cronologia::LeerCronologia(const char * nombre)
 	string anio;
 	string suceso;
 
-	while(!cin.eof()){
+	while(!fi.eof()){
 
-		for (int = 0; i < 4; i++)
-			anio + = fi.get();
+		for (int i = 0; i < 4; i++)
+			anio += fi.get();
 
 		FechaHistorica fecha (stoi(anio));
 
@@ -186,7 +186,7 @@ void Cronologia::LeerCronologia(const char * nombre)
 		while(caracter != '\n'){
 			caracter = fi.get();
 
-			if(caracter == "#")
+			if(caracter == '#')
 				fecha.AniadeSuceso(suceso);
 
 			suceso += caracter;
