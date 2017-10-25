@@ -12,7 +12,7 @@ class Cronologia{
 
 private:
 
-	const int MIN_ANIO = 1990;
+	const int MIN_ANIO = 1900;
 	const int MAX_ANIO = 2017;
 
 	Vector_Dinamico<FechaHistorica> fechas;
