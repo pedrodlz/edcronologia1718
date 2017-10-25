@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char * argv[]){
 
-  if (argc!=2){
+   if (argc!=2){
       cout<<"Dime el nombre del fichero con la cronologia"<<endl;
       return 0;
    }
