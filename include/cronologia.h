@@ -38,6 +38,8 @@ public:
 	Cronologia CreaSubCronoIntervalo(int min, int max);
 
 	void LeerCronologia(const char * nombre);
+	
+	string toString();
 
 private:
 	void LiberarMemoria (void);
