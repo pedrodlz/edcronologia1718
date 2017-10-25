@@ -30,6 +30,8 @@ public:
 	void EliminaFecha(int anio);
 
   	void UnionCrono(Cronologia cron_aniadir);
+	
+	Cronologia CreaSubCrono(string palabra); 
 
 
 private:
