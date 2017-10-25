@@ -37,42 +37,50 @@ void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 
 	if(anio >= MIN_ANIO && anio <= MAX_ANIO){
 
-		indice = this.BuscaFecha(anio);
+		if(this.fechas.size() == 0){
 
-		if(indice != -1)
-
-			for(int p = 0; p < una_fecha.sucesos.size(); p ++)
-				this.fechas[indice].AniadeSuceso(una_fecha.sucesos[p]);
-
+			this.fechas.resize(1);
+			this.fechas[0] = una_fecha;
+		}
 		else{
 
-			this.fechas.resize(fechas.size() + 1);
+			indice = this.BuscaFecha(anio);
 
-			if(anio < this.fechas[0].GetAnio()){
+			if(indice != -1){
 
-				for(int i = this.fechas.size(); i > 0; i--)
-					this.fechas[i] = this.fechas[i - 1];
-
-				this.fechas[0] = una_fecha;
-
-			}
-			else if (anio > this.fechas[this.fechas.size() - 1].GetAnio()){
-
-				this.fechas[this.fechas.size()] = una_fecha;
-
+				for(int p = 0; p < una_fecha.sucesos.size(); p ++)
+					this.fechas[indice].AniadeSuceso(una_fecha.sucesos[p]);
 			}
 			else{
 
-				bool no_encontrado = true;
+				this.fechas.resize(fechas.size() + 1);
 
-				for(int i = 0; i < this.fechas.size()-1 && no_encontrado; i++){
-					if(this.fechas[i].GetAnio() < anio && this.fechas[i+1].GetAnio() > anio){
+				if(anio < this.fechas[0].GetAnio()){
 
-						for(int p = this.fechas.size(); p > i-1; p--)
-							this.fechas[p] = this.fechas[p-1];
+					for(int i = this.fechas.size(); i > 0; i--)
+						this.fechas[i] = this.fechas[i - 1];
 
-						this.fechas[i+1] = una_fecha;
-						no_encontrado = false;
+					this.fechas[0] = una_fecha;
+
+				}
+				else if (anio > this.fechas[this.fechas.size() - 1].GetAnio()){
+
+					this.fechas[this.fechas.size()] = una_fecha;
+
+				}
+				else{
+
+					bool no_encontrado = true;
+
+					for(int i = 0; i < this.fechas.size()-1 && no_encontrado; i++){
+						if(this.fechas[i].GetAnio() < anio && this.fechas[i+1].GetAnio() > anio){
+
+							for(int p = this.fechas.size(); p > i-1; p--)
+								this.fechas[p] = this.fechas[p-1];
+
+							this.fechas[i+1] = una_fecha;
+							no_encontrado = false;
+						}
 					}
 				}
 			}
@@ -105,7 +113,7 @@ void Cronologia::UnionCrono(Cronologia cron_aniadir)
 Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
 {
 	Vector_Dinamico<bool> sucesos_clave;
-	bool algun_false = true;
+	bool todos_false = true;
 	Cronologia sub_cron;
 	FechaHistorica fecha_aniadir;
 	int p;
@@ -114,8 +122,8 @@ Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
 		sucesos_clave = this.fechas[i].BuscaPalabraClave(palabra);
 		for(p = 0; p < sucesos_clave.size() && algun_false; p++)
 			if(sucesos_clave[p])
-				algun_false = false;
-		if(!algun_false){
+				todos_false = false;
+		if(!todos_false){
 			fecha_aniadir.SetAnio(this.fechas[i].GetAnio());
 			for(p = 0; p < sucesos_clave.size() && algun_false; p++)
 				if(sucesos_clave[p])
@@ -123,7 +131,6 @@ Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
 			sub_cron.AniadeFecha(fecha_aniadir);
 		}
 	}
-
 	return sub_cron;
 }
 
@@ -141,10 +148,13 @@ Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 	if((min_anio >= MIN_ANIO && min_anio <= MAX_ANIO) &&
 		(max_anio >= MIN_ANIO && max_anio <= MAX_ANIO)){
 
-			int indice_i, indice_f;
+			int indice_i = this.BuscaFecha(min_anio),
+				indice_f = this.BuscaFecha(max_anio);
 
-			while(this.fechas[indice_i] !=)
-
+			if (indice_i != -1 && indice_f != -1){
+				for(int i = indice_i; i <= indice_f; i++)
+					sub_cron.AniadeFecha(this.fechas[i]);
+			}
 	}
 
 	return sub_cron;
