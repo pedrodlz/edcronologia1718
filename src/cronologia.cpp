@@ -189,7 +189,7 @@ void Cronologia::LeerCronologia(const char * nombre)
 
 			caracter = fi.get();
 
-			if(caracter == '#' || caracter == '\n'){
+			if(caracter == '#' || caracter == '\n' || caracter == EOF){
 				fecha.AniadeSuceso(suceso);
 				suceso = "";
 			}
