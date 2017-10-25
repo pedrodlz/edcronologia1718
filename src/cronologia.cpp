@@ -119,20 +119,29 @@ Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
 	Vector_Dinamico<bool> sucesos_clave;
 	bool todos_false = true;
 	Cronologia sub_cron;
-	FechaHistorica fecha_aniadir;
-	int p;
 
 	for(int i = 0; i < fechas.size(); i++){
+		
+		FechaHistorica fecha_aniadir;
+		
 		sucesos_clave = fechas[i].BuscaPalabraClave(palabra);
-		for(p = 0; p < sucesos_clave.size() && todos_false; p++)
+		
+		for(int p = 0; p < sucesos_clave.size() && todos_false; p++){
 			if(sucesos_clave[p])
 				todos_false = false;
+		}
+		
 		if(!todos_false){
 			fecha_aniadir.SetAnio(fechas[i].GetAnio());
-			for(p = 0; p < sucesos_clave.size(); p++)
+			
+			for(int p = 0; p < sucesos_clave.size(); p++){
 				if(sucesos_clave[p])
 					fecha_aniadir.AniadeSuceso(fechas[i].GetSuceso(p));
+			}
+			
 			sub_cron.AniadeFecha(fecha_aniadir);
+			
+			todos_false = true;
 		}
 	}
 	return sub_cron;
