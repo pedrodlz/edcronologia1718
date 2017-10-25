@@ -175,7 +175,7 @@ void Cronologia::LeerCronologia(const char * nombre)
 	FechaHistorica fecha;
 
 	while(!fi.eof()){
-
+		anio = "";
 		for (int i = 0; i < 4; i++)
 			anio += fi.get();
 
