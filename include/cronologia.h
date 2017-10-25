@@ -29,7 +29,7 @@ public:
 
 	void EliminaFecha(int anio);
 
-  	void UnionCrono(Cronologia cron1, Cronologia cron2);
+  	void UnionCrono(Cronologia cron_aniadir);
 
 
 private:
