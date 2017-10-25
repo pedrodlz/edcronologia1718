@@ -166,28 +166,36 @@ Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 void Cronologia::LeerCronologia(const char * nombre)
 {
 	ifstream fi (nombre);
-	cout << "hola";
+
 	int num;
-
+	char caracter;
+	string anio;
 	string suceso;
+	
+	while(!cin.eof()){
 
-	while(fi >> num){
-		FechaHistorica fecha (num);
-		char c = fi.get();
+		for (int = 0; i < 4; i++)
+			anio + = fi.get();
+
+		FechaHistorica fecha (stoi(anio));
+
+		caracter = fi.get();
+
 		suceso = "";
-		while(c != '\n'){
-			c = fi.get();
-			if(c != '#' || c != '\n'){
-				suceso += c;
-			}else{
+
+		while(caracter != '\n'){
+			caracter = fi.get();
+
+			if(caracter == "#")
 				fecha.AniadeSuceso(suceso);
-			}
+			
+			suceso += caracter;
 		}
+		
 		AniadeFecha(fecha);
 	}
 
 	fi.close();
-
 }
 
 string Cronologia::toString()
