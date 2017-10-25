@@ -189,3 +189,13 @@ void Cronologia::LeerCronologia(const char * nombre)
 	fi.close();
 
 }
+
+string Cronologia::toString()
+{
+	string resultado = "";
+	
+	for(int i = 0; i < fechas.size(); i++)
+		resultado += fechas[i].toString() + "\n";
+	
+	return resultado;
+}

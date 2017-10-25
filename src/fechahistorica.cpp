@@ -86,3 +86,15 @@ Vector_Dinamico<bool> FechaHistorica::BuscaPalabraClave(const string clave)
 	}
 	return (encontrada);
 }
+
+string FechaHistorica::toString()
+{
+	string resultado = "";
+	
+	resultado = anio + ": ";
+	
+	for(int i = 0; i < sucesos.size(); i ++)
+		resultado += sucesos[i] + "\n";
+
+	return resultado;
+}
