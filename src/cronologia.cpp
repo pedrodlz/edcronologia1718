@@ -84,17 +84,15 @@ void Cronologia::EliminaFecha(int anio)
 {
 	if(anio >= MIN_ANIO && anio <= MAX_ANIO){
 
-		bool no_encontrado = true;
-		int p;
+		int indice = this.BuscaFecha(anio);
 
-		for(int i = 0; i < this.fechas.size() && no_encontrado; i++)
-			if(this.fechas[i].GetAnio == anio){
-				for(p = i; p < this.fechas.size() - 1; p++)
-					this.fechas[p] = this.fechas[p+1];
-				no_encontrado = false;
-			}
+		if(indice != -1){}
 
-		this.fechas.resize(p);
+			for(int p = indice; p < this.fechas.size() - 1; p++)
+				this.fechas[p] = this.fechas[p+1];
+
+			this.fechas.resize(this.fechas.size() - 1);
+		}
 	}
 }
 
