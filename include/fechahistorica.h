@@ -42,6 +42,8 @@ public:
 	void EliminaSuceso(int indice);
 
 	Vector_Dinamico<bool> BuscaPalabraClave(const string clave);
+	
+	string toString ();
 
 };
 
