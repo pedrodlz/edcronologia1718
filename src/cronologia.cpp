@@ -193,8 +193,8 @@ void Cronologia::LeerCronologia(const char * nombre)
 				fecha.AniadeSuceso(suceso);
 				suceso = "";
 			}
-
-			suceso += caracter;
+			if(caracter != '#')
+				suceso += caracter;
 		}
 
 		AniadeFecha(fecha);
