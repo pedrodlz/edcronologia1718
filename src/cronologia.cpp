@@ -42,7 +42,6 @@ void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 	if(anio >= MIN_ANIO && anio <= MAX_ANIO){
 
 		if(fechas.size() == 0){
-
 			fechas.resize(1);
 			fechas[0] = una_fecha;
 		}
@@ -69,7 +68,7 @@ void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 				}
 				else if (anio > fechas[fechas.size() - 1].GetAnio()){
 
-					fechas[fechas.size()] = una_fecha;
+					fechas[fechas.size()-1] = una_fecha;
 
 				}
 				else{
