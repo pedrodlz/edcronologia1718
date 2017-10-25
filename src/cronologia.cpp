@@ -52,3 +52,35 @@ void Cronologia::UnionCrono(Cronologia cron_aniadir)
 	for(int i = 0; i < cron_aniadir.fechas.size(); i++)
 		this.AniadeFecha(cron_aniadir.fechas[i]);
 }
+
+Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
+{
+	Vector_Dinamico<bool> sucesos_clave;
+	bool algun_false = true;
+	Cronologia sub_cron;
+	FechaHistorica fecha_aniadir;
+	int p;
+	
+	for(int i = 0; i < this.fechas.size(); i++){
+		sucesos_clave = this.fechas[i].BuscaPalabraClave(palabra);
+		for(p = 0; p < sucesos_clave.size() && algun_false; p++)
+			if(sucesos_clave[p]) 
+				algun_false = false;
+		if(!algun_false){
+			fecha_aniadir.SetAnio(this.fechas[i].GetAnio());
+			for(p = 0; p < sucesos_clave.size() && algun_false; p++)
+				if(sucesos_clave[p]) 
+					fecha_aniadir.AniadeSuceso(sucesos_clave[p]);
+			sub_cron.AniadeFecha(fecha_aniadir);
+		}
+	}
+	
+	return sub_cron;	
+}
+
+Cronologia Cronologia::CreaSubCronIntervalo(int min_anio, int max_anio)
+{
+	Cronologia sub_cron;
+
+	return sub_cron;
+}
