@@ -78,10 +78,10 @@ Vector_Dinamico<bool> FechaHistorica::BuscaPalabraClave(const string clave)
 {
 	Vector_Dinamico<bool> encontrada (num_sucesos);
 	for(int i = 0; i < num_sucesos; i++){
-		if(sucesos[i].find(clave) >= 0){
-			encontrada[i] = true;
-		}else{
+		if(sucesos[i].find(clave) == -1){
 			encontrada[i] = false;
+		}else{
+			encontrada[i] = true;
 		}
 	}
 	return (encontrada);
