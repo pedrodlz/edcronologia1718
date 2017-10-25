@@ -186,7 +186,7 @@ void Cronologia::LeerCronologia(const char * nombre)
 		suceso = "";
 
 		while(caracter != '\n' && caracter != EOF){
-			cout << caracter;
+
 			caracter = fi.get();
 
 			if(caracter == '#'){
