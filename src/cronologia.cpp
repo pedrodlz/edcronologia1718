@@ -172,6 +172,7 @@ void Cronologia::LeerCronologia(const char * nombre)
 	while(fi >> num){
 		FechaHistorica fecha (num);
 		char c = fi.get();
+		suceso = "";
 		while(c != '\n'){
 			c = fi.get();
 			if(c != '#' || c != '\n'){
