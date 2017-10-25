@@ -171,8 +171,13 @@ void Cronologia::LeerCronologia(const char * nombre)
 	char caracter;
 	string anio;
 	string suceso;
+<<<<<<< HEAD
 
 	while(!fi.eof()){
+=======
+	
+	while(!cin.eof()){
+>>>>>>> bf46cba3fe850034cd1c4c4206144d976c58448b
 
 		for (int i = 0; i < 4; i++)
 			anio += fi.get();
@@ -186,12 +191,18 @@ void Cronologia::LeerCronologia(const char * nombre)
 		while(caracter != '\n'){
 			caracter = fi.get();
 
+<<<<<<< HEAD
 			if(caracter == '#')
+=======
+			if(caracter == "#"){
+>>>>>>> bf46cba3fe850034cd1c4c4206144d976c58448b
 				fecha.AniadeSuceso(suceso);
-
+				suceso = "";
+			}
+			
 			suceso += caracter;
 		}
-
+		
 		AniadeFecha(fecha);
 	}
 
