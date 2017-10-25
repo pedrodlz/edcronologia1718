@@ -21,7 +21,7 @@ public:
 
 	Cronologia(void);
 
-  	//Cronologia();
+  	Cronologia(const char * nombre);
 
 	Cronologia(const Cronologia & otra);
 

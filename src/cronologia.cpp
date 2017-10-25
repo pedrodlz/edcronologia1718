@@ -6,7 +6,10 @@ using namespace std;
 
 Cronologia::Cronologia(void){}
 
-//Cronologia::Cronologia(){}
+Cronologia::Cronologia(const char * nombre)
+{
+	LeerCronologia(nombre);
+}
 
 Cronologia::Cronologia(const Cronologia & otra)
 {
