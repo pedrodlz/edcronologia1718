@@ -22,9 +22,16 @@ int main(int argc, char * argv[]){
    Cronologia mi_cronologia;
    mi_cronologia.LeerCronologia(argv[1]);
 
-  //cout << mi_cronologia.toString();
+   //cout << mi_cronologia.toString();
 
-  Cronologia cronologia_2(mi_cronologia.CreaSubCronoIntervalo(1958,1963));
+   Cronologia cronologia_2(mi_cronologia.CreaSubCronoIntervalo(1958,1963));
+   Cronologia cronologia_3(mi_cronologia.CreaSubCronoIntervalo(1923,1950));
+
+   cout << cronologia_2.toString() << endl << endl;
+   cout << cronologia_3.toString() << endl << endl;
+
+
+   cronologia_2.UnionCrono(cronologia_3);
 
    cout << cronologia_2.toString() << endl;
 
@@ -33,12 +40,12 @@ int main(int argc, char * argv[]){
    fecha.AniadeSuceso("Prueba2");
 
    cout << fecha.GetAnio() << "  " << fecha.GetNumSucesos() << "  "
-            << fecha.GetSuceso(0) << "  " << fecha.GetSuceso(1) << endl;
+    << fecha.GetSuceso(0) << "  " << fecha.GetSuceso(1) << endl;
 
-    fecha.EliminaSuceso(0);
+   fecha.EliminaSuceso(0);
 
-    cout << fecha.GetAnio() << "  " << fecha.GetNumSucesos() << "  "
-             << fecha.GetSuceso(0) << endl;
+   cout << fecha.GetAnio() << "  " << fecha.GetNumSucesos() << "  "
+    << fecha.GetSuceso(0) << endl;
 
 
    /* Exhibir aquí la funcionalidad programada para el TDA Cronologia / TDA FechaHistorica */

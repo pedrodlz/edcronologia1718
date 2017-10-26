@@ -140,7 +140,7 @@ void Cronologia::EliminaFecha(int anio)
 void Cronologia::UnionCrono(Cronologia cron_aniadir)
 {
 	for(int i = 0; i < cron_aniadir.fechas.size(); i++)
-		AniadeFecha(cron_aniadir.fechas[i]);
+		this.AniadeFecha(cron_aniadir.fechas[i]);
 }
 
 Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
@@ -205,7 +205,7 @@ Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 			if(indice_f == -1){
 				indice_f = BuscaFecha(SigFechaMenor(max_anio));
 			}
-			
+
 			for(int i = indice_i; i <= indice_f; i++)
 				sub_cron.AniadeFecha(fechas[i]);
 	}
