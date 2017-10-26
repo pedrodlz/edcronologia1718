@@ -22,18 +22,22 @@ int main(int argc, char * argv[]){
    Cronologia mi_cronologia;
    mi_cronologia.LeerCronologia(argv[1]);
 
-   //cout << mi_cronologia.toString();
+   cout << "----------------------------------------------------------" << endl;
+   cout << mi_cronologia.toString();
 
    Cronologia cronologia_2(mi_cronologia.CreaSubCronoIntervalo(1958,1963));
    Cronologia cronologia_3(mi_cronologia.CreaSubCronoIntervalo(1923,1950));
 
-   cout << cronologia_2.toString() << endl << endl;
-   cout << cronologia_3.toString() << endl << endl;
-
+   cout << "----------------------------------------------------------" << endl;
+   cout << cronologia_2.toString();
+   cout << "----------------------------------------------------------" << endl;
+   cout << cronologia_3.toString();
+   cout << "----------------------------------------------------------" << endl;
 
    cronologia_2.UnionCrono(cronologia_3);
 
-   cout << cronologia_2.toString() << endl;
+   cout << cronologia_2.toString();
+   cout << "----------------------------------------------------------" << endl;
 
    FechaHistorica fecha (1998);
    fecha.AniadeSuceso("Prueba");

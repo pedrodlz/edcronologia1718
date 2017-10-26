@@ -84,37 +84,27 @@ void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 				for(int p = 0; p < una_fecha.GetNumSucesos(); p ++)
 					fechas[indice].AniadeSuceso(una_fecha.GetSuceso(p));
 			}
-			else{
-
-				fechas.resize(fechas.size() + 1);
+			else{ 
 
 				if(anio < fechas[0].GetAnio()){
-
-					for(int i = fechas.size(); i > 0; i--)
-						fechas[i] = fechas[i - 1];
+					fechas.resize(fechas.size()+1);
+					for(int i = fechas.size()-1; i > 0; i--)
+						fechas[i] = fechas[i-1];
 
 					fechas[0] = una_fecha;
 
 				}
-				else if (anio > fechas[fechas.size() - 1].GetAnio()){
-
+				else if (anio > fechas[fechas.size()-1].GetAnio()){
+					fechas.resize(fechas.size()+1);
 					fechas[fechas.size()-1] = una_fecha;
-
 				}
 				else{
+					fechas.resize(fechas.size()+1);
+					int indice = BuscaFecha(SigFechaMayor(anio));
 
-					bool no_encontrado = true;
-
-					for(int i = 0; i < fechas.size()-1 && no_encontrado; i++){
-						if(fechas[i].GetAnio() < anio && fechas[i+1].GetAnio() > anio){
-
-							for(int p = fechas.size(); p > i-1; p--)
-								fechas[p] = fechas[p-1];
-
-							fechas[i+1] = una_fecha;
-							no_encontrado = false;
-						}
-					}
+					for(int i = fechas.size()-1; i > indice; i--)
+						fechas[i] = fechas[i-1];
+					fechas[indice] = una_fecha;
 				}
 			}
 		}
@@ -139,8 +129,10 @@ void Cronologia::EliminaFecha(int anio)
 
 void Cronologia::UnionCrono(Cronologia cron_aniadir)
 {
+
 	for(int i = 0; i < cron_aniadir.fechas.size(); i++)
-		AniadeFecha(cron_aniadir.fechas[i]);
+		this->AniadeFecha(cron_aniadir.fechas[i]);
+
 }
 
 Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
