@@ -41,6 +41,8 @@ public:
 
 	Cronologia CreaSubCronoIntervalo(int min, int max);
 
+	void EscribirCronologia(const char * nombre);
+
 	void LeerCronologia(const char * nombre);
 
 	Cronologia& operator=(const Cronologia & otra);

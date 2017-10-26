@@ -39,17 +39,7 @@ int main(int argc, char * argv[]){
    cout << cronologia_4.toString();
    cout << "----------------------------------------------------------" << endl;
 
-   FechaHistorica fecha (1998);
-   fecha.AniadeSuceso("Prueba");
-   fecha.AniadeSuceso("Prueba2");
-
-   cout << fecha.GetAnio() << "  " << fecha.GetNumSucesos() << "  "
-    << fecha.GetSuceso(0) << "  " << fecha.GetSuceso(1) << endl;
-
-   fecha.EliminaSuceso(0);
-
-   cout << fecha.GetAnio() << "  " << fecha.GetNumSucesos() << "  "
-    << fecha.GetSuceso(0) << endl;
+   cronologia_4.EscribirCronologia("prueba2");
 
 
    /* Exhibir aquí la funcionalidad programada para el TDA Cronologia / TDA FechaHistorica */

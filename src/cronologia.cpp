@@ -205,6 +205,28 @@ Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 	return sub_cron;
 }
 
+void Cronologia::EscribirCronologia(const char * nombre)
+{
+	ofstream fo (nombre);
+
+	if (!fo) {
+		cerr << "Error: no pudo crearse " << nombre << endl;
+		exit (1);
+	}
+	if(fechas.size() > 0){
+		for(int i = 0; i < fechas.size(); i++){
+			fo << fechas[i].GetAnio();
+			for(int j = 0; j < fechas[i].GetSucesos().size(); j++){
+				fo << "#" << fechas[i].GetSuceso(j);
+			}
+			fo << '\n';
+		}
+
+	}
+
+	fo.close();
+}
+
 void Cronologia::LeerCronologia(const char * nombre)
 {
 	ifstream fi (nombre);
@@ -217,28 +239,31 @@ void Cronologia::LeerCronologia(const char * nombre)
 	while(!fi.eof()){
 		FechaHistorica fecha;
 		anio = "";
+
 		for (int i = 0; i < 4; i++)
 			anio += fi.get();
 
-		fecha.SetAnio(stoi(anio));
-
-		caracter = fi.get();
-
-		suceso = "";
-
-		while(caracter != '\n' && caracter != EOF){
+		if(!fi.eof()){
+			fecha.SetAnio(stoi(anio));
 
 			caracter = fi.get();
 
-			if(caracter == '#' || caracter == '\n' || caracter == EOF){
-				fecha.AniadeSuceso(suceso);
-				suceso = "";
-			}
-			if(caracter != '#')
-				suceso += caracter;
-		}
+			suceso = "";
 
-		AniadeFecha(fecha);
+			while(caracter != '\n' && caracter != EOF){
+
+				caracter = fi.get();
+
+				if(caracter == '#' || caracter == '\n' || caracter == EOF){
+					fecha.AniadeSuceso(suceso);
+					suceso = "";
+				}
+				if(caracter != '#')
+					suceso += caracter;
+			}
+
+			AniadeFecha(fecha);
+		}
 	}
 
 	fi.close();
