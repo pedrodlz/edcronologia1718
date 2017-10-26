@@ -185,11 +185,6 @@ Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 			int indice_i = BuscaFecha(min_anio),
 				indice_f = BuscaFecha(max_anio);
 
-			/*if (indice_i != -1 && indice_f != -1){
-				for(int i = indice_i; i <= indice_f; i++)
-					sub_cron.AniadeFecha(fechas[i]);
-			}else{*/
-
 			if(indice_i == -1){
 				indice_i = BuscaFecha(SigFechaMayor(min_anio));
 			}

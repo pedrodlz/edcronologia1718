@@ -41,6 +41,13 @@ int main(int argc, char * argv[]){
 
    cronologia_4.EscribirCronologia("prueba2");
 
+   cout << "Buscando palabra clave 'Einstein' en la cronologia.... " << endl << endl;
+
+   Cronologia cronologia_5 = mi_cronologia.CreaSubCronoPalabra("Einstein");
+
+   cout << cronologia_5.toString();
+   cout << "----------------------------------------------------------" << endl;
+
 
    /* Exhibir aquí la funcionalidad programada para el TDA Cronologia / TDA FechaHistorica */
 
