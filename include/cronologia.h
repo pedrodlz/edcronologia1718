@@ -49,9 +49,6 @@ public:
 
 	string toString();
 
-private:
-	void LiberarMemoria (void);
-
 
 };
 
