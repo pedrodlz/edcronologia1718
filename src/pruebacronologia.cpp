@@ -25,8 +25,8 @@ int main(int argc, char * argv[]){
    cout << "----------------------------------------------------------" << endl;
    cout << mi_cronologia.toString();
 
-   Cronologia cronologia_2(mi_cronologia.CreaSubCronoIntervalo(1958,1963));
-   Cronologia cronologia_3(mi_cronologia.CreaSubCronoIntervalo(1923,1950));
+   Cronologia cronologia_2 = mi_cronologia.CreaSubCronoIntervalo(1958,1963);
+   Cronologia cronologia_3 = mi_cronologia.CreaSubCronoIntervalo(1923,1950);
 
    cout << "----------------------------------------------------------" << endl;
    cout << cronologia_2.toString();
@@ -34,9 +34,9 @@ int main(int argc, char * argv[]){
    cout << cronologia_3.toString();
    cout << "----------------------------------------------------------" << endl;
 
-   cronologia_2.UnionCrono(cronologia_3);
+   Cronologia cronologia_4 = cronologia_2 + (cronologia_3);
 
-   cout << cronologia_2.toString();
+   cout << cronologia_4.toString();
    cout << "----------------------------------------------------------" << endl;
 
    FechaHistorica fecha (1998);

@@ -84,7 +84,7 @@ void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 				for(int p = 0; p < una_fecha.GetNumSucesos(); p ++)
 					fechas[indice].AniadeSuceso(una_fecha.GetSuceso(p));
 			}
-			else{ 
+			else{
 
 				if(anio < fechas[0].GetAnio()){
 					fechas.resize(fechas.size()+1);
@@ -242,6 +242,23 @@ void Cronologia::LeerCronologia(const char * nombre)
 	}
 
 	fi.close();
+}
+
+Cronologia& Cronologia::operator=(const Cronologia & otra)
+{
+	if(this != &otra){
+		fechas = otra.fechas;
+	}
+	return *this;
+}
+
+Cronologia Cronologia::operator + (const Cronologia & otra)
+{
+	Cronologia tmp (*this);
+
+	tmp.UnionCrono(otra);
+
+	return tmp;
 }
 
 string Cronologia::toString()

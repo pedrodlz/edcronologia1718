@@ -43,6 +43,10 @@ public:
 
 	void LeerCronologia(const char * nombre);
 
+	Cronologia& operator=(const Cronologia & otra);
+
+	Cronologia operator + (const Cronologia & otra);
+
 	string toString();
 
 private:
