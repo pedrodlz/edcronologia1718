@@ -252,7 +252,7 @@ Cronologia& Cronologia::operator=(const Cronologia & otra)
 	return *this;
 }
 
-Cronologia Cronologia::operator + (const Cronologia & otra)
+Cronologia Cronologia::operator+(const Cronologia & otra)
 {
 	Cronologia tmp (*this);
 
