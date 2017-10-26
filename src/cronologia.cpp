@@ -36,6 +36,35 @@ int Cronologia::BuscaFecha(const int anio)
 	return indice;
 }
 
+int Cronologia::SigFechaMenor(const int anio)
+{
+	int sig_menor = anio;
+	bool mayor = false;
+
+	for(int i = 1; i < fechas.size() && !mayor; i++){
+		if(anio < fechas[i].GetAnio()){
+			mayor = true;
+		}
+		sig_menor = fechas[i-1].GetAnio();
+	}
+	return sig_menor;
+}
+
+int Cronologia::SigFechaMayor(const int anio)
+{
+	int sig_mayor = anio;
+	bool menor = false;
+
+	for(int i = 0; i < fechas.size() && !menor; i++){
+		if(anio < fechas[i].GetAnio()){
+			menor = true;
+			sig_mayor = fechas[i].GetAnio();
+		}
+	}
+
+	return sig_mayor;
+}
+
 void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 {
 	int anio = una_fecha.GetAnio();
@@ -121,26 +150,26 @@ Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
 	Cronologia sub_cron;
 
 	for(int i = 0; i < fechas.size(); i++){
-		
+
 		FechaHistorica fecha_aniadir;
-		
+
 		sucesos_clave = fechas[i].BuscaPalabraClave(palabra);
-		
+
 		for(int p = 0; p < sucesos_clave.size() && todos_false; p++){
 			if(sucesos_clave[p])
 				todos_false = false;
 		}
-		
+
 		if(!todos_false){
 			fecha_aniadir.SetAnio(fechas[i].GetAnio());
-			
+
 			for(int p = 0; p < sucesos_clave.size(); p++){
 				if(sucesos_clave[p])
 					fecha_aniadir.AniadeSuceso(fechas[i].GetSuceso(p));
 			}
-			
+
 			sub_cron.AniadeFecha(fecha_aniadir);
-			
+
 			todos_false = true;
 		}
 	}
@@ -164,10 +193,21 @@ Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 			int indice_i = BuscaFecha(min_anio),
 				indice_f = BuscaFecha(max_anio);
 
-			if (indice_i != -1 && indice_f != -1){
+			/*if (indice_i != -1 && indice_f != -1){
 				for(int i = indice_i; i <= indice_f; i++)
 					sub_cron.AniadeFecha(fechas[i]);
+			}else{*/
+
+			if(indice_i == -1){
+				indice_i = BuscaFecha(SigFechaMayor(min_anio));
 			}
+
+			if(indice_f == -1){
+				indice_f = BuscaFecha(SigFechaMenor(max_anio));
+			}
+			
+			for(int i = indice_i; i <= indice_f; i++)
+				sub_cron.AniadeFecha(fechas[i]);
 	}
 
 	return sub_cron;

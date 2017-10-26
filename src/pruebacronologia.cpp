@@ -22,9 +22,9 @@ int main(int argc, char * argv[]){
    Cronologia mi_cronologia;
    mi_cronologia.LeerCronologia(argv[1]);
 
-   //cout << mi_cronologia.toString();
+  //cout << mi_cronologia.toString();
 
-   Cronologia cronologia_2(mi_cronologia.CreaSubCronoIntervalo(1959,1963));
+  Cronologia cronologia_2(mi_cronologia.CreaSubCronoIntervalo(1958,1963));
 
    cout << cronologia_2.toString() << endl;
 

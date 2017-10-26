@@ -27,6 +27,10 @@ public:
 
 	int BuscaFecha(const int anio);
 
+	int SigFechaMenor(const int anio);
+
+	int SigFechaMayor(const int anio);
+
 	void AniadeFecha(FechaHistorica una_fecha);
 
 	void EliminaFecha(int anio);
@@ -38,7 +42,7 @@ public:
 	Cronologia CreaSubCronoIntervalo(int min, int max);
 
 	void LeerCronologia(const char * nombre);
-	
+
 	string toString();
 
 private:
