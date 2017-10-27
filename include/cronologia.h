@@ -38,7 +38,7 @@ private:
   *
   * @section invConjunto Invariante de la representación
   *
-  * El invariante es \e rep.anio<0
+  * El invariante es \e rep.anio>=0
   *
   * @section faConjunto Función de abstracción
   *
