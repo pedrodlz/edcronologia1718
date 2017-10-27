@@ -33,6 +33,20 @@ using namespace std;
 class Cronologia{
 
 private:
+/**
+  * @page repConjunto Rep del TDA Cronologia
+  *
+  * @section invConjunto Invariante de la representación
+  *
+  * El invariante es \e rep.anio<0
+  *
+  * @section faConjunto Función de abstracción
+  *
+  * Un objeto válido @e rep del TDA Racional representa al valor
+  *
+  * (rep.num,rep.den)
+  *
+  */
 
 	const int MIN_ANIO = 1900; /**< Año minimo */
 	const int MAX_ANIO = 2017; /**< Año maximo */
