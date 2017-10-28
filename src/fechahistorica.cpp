@@ -12,7 +12,6 @@ FechaHistorica::FechaHistorica(void)
 FechaHistorica::FechaHistorica(const int anio)
 {
 	this->anio = anio;
-	sucesos = 1;
 	num_sucesos = 0;
 }
 
@@ -25,12 +24,6 @@ FechaHistorica::FechaHistorica(const FechaHistorica & otra)
 	num_sucesos = otra.num_sucesos;
 }
 
-FechaHistorica::~FechaHistorica(void)
-{
-	anio = 0;
-	num_sucesos = 0;
-}
-
 int FechaHistorica::GetAnio(void) const
 {
 	return(anio);
@@ -41,9 +34,9 @@ Vector_Dinamico<string> FechaHistorica::GetSucesos(void) const
 	return(sucesos);
 }
 
-string FechaHistorica::GetSuceso(const int i) const
+string FechaHistorica::GetSuceso(const int indice) const
 {
-	return(sucesos[i]);
+	return(sucesos[indice]);
 }
 
 int FechaHistorica::GetNumSucesos(void) const
@@ -51,12 +44,12 @@ int FechaHistorica::GetNumSucesos(void) const
 	return(sucesos.size());
 }
 
-void FechaHistorica::SetAnio(int anio)
+void FechaHistorica::SetAnio(const int anio)
 {
 	this->anio = anio;
 }
 
-void FechaHistorica::AniadeSuceso(string suceso)
+void FechaHistorica::AniadeSuceso(const string suceso)
 {
 	if(num_sucesos == sucesos.size())
 		sucesos.resize(sucesos.size()+1);
@@ -64,11 +57,11 @@ void FechaHistorica::AniadeSuceso(string suceso)
 	num_sucesos++;
 }
 
-void FechaHistorica::EliminaSuceso(int i)
+void FechaHistorica::EliminaSuceso(const int indice)
 {
 	int p;
 
-	for(p = i; p < sucesos.size() - 1; p++)
+	for(p = indice; p < sucesos.size() - 1; p++)
 		sucesos[p] = sucesos[p + 1];
 	num_sucesos--;
 	sucesos.resize(p);
