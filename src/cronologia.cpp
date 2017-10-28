@@ -226,7 +226,6 @@ void Cronologia::LeerCronologia(const char * nombre)
 {
 	ifstream fi (nombre);
 
-	int num;
 	char caracter;
 	string anio;
 	string suceso;
