@@ -29,7 +29,7 @@ $(LIB)/libcronolo.a: $(OBJ)/fechahistorica.o $(OBJ)/cronologia.o
 
 # ************ Limpieza ************
 clean :
-	-rm $(OBJ)/* $(BIN)/* $(LIB)/*
+	-rm $(OBJ)/* $(BIN)/* $(LIB)/* doc/html/*
 
 mrproper : clean
 	-rm $(BIN)/* doc/html/*

@@ -18,7 +18,7 @@ using namespace std;
   *
   * Una instancia @e c del tipo de datos abstracto @c Cronologia es un objeto
   * que almacena la informacion de un conjunto de fechas ordenadas cronologicamente
-  * a partir de un tema. Este TDA incluye operaciones para poder operar con 
+  * a partir de un tema. Este TDA incluye operaciones para poder operar con
   * muchas fechas facilmente
   *
   * Un ejemplo de su uso:
@@ -42,7 +42,7 @@ private:
   *
   * @section faConjunto Función de abstracción
   *
-  * Un objeto válido @e rep del TDA Racional representa al valor
+  * Un objeto válido @e rep del TDA Cronologia representa al valor
   *
   * (rep.num,rep.den)
   *
@@ -54,16 +54,16 @@ private:
 	Vector_Dinamico<FechaHistorica> fechas; /**< Array de fechas*/
 
 public:
-	
+
 	/**
 	  * @brief Constructor por defecto de la clase. Crea una cronologia vacía
 	  */
 	Cronologia(void);
-	
+
 	/**
 	  * @brief Constructor a partir de fichero
 	  * @param nombre nombre del fichero de texto a partir del cual se construye la cronologia
-	  * @pre 
+	  * @pre
 	  */
   	Cronologia(const char * nombre);
 
@@ -73,23 +73,23 @@ public:
 	  * @pre
 	  */
 	Cronologia(const Cronologia & otra);
-	
+
 	/**
 	  * @brief Busca un año en una cronologia
 	  * @param anio año a buscar
 	  * @return Devuelve el indice de la cronologia donde se encuentra el año
-	  * @pre 
+	  * @pre
 	  */
 	int BuscaFecha(const int anio);
-	
+
 	/**
 	  * @brief Si un año no se encuentra en la cronologia busca el siguiente menor
 	  * @param anio año del que se busca otro año inferior
 	  * @return Devuelve el indice de la cronologia donde se encuentra el año inferior
-	  * @pre 
+	  * @pre
 	  */
 	int SigFechaMenor(const int anio);
-	
+
 	/**
 	  * @brief Si un año no se encuentra en la cronologia busca el siguiente mayor
 	  * @param anio año del que se busca otro año superior
@@ -97,29 +97,29 @@ public:
 	  * @pre
 	  */
 	int SigFechaMayor(const int anio);
-	
+
 	/**
 	  * @brief Añade una fecha a la cronología
 	  * @param fecha Fecha a añadir
 	  * @pre
 	  */
 	void AniadeFecha(FechaHistorica una_fecha);
-	
+
 	/**
 	  * @brief Elimina una fecha de la cronología
 	  * @param anio año de la fecha a eliminar
 	  * @pre
 	  */
 	void EliminaFecha(int anio);
-	
+
 	/**
 	  * @brief Une dos cronologias
-	  * @param cron_aniadir cronologia a añadir 
+	  * @param cron_aniadir cronologia a añadir
 	  * @return No devuelve nada pero la union de ambas se guarda en la cronologia implicita
 	  * @pre
 	  */
   	void UnionCrono(Cronologia cron_aniadir);
-	
+
 	/**
 	  * @brief Crea una subcronologia a partir de una palabra clave
 	  * @param palabra palabra clave a buscar
@@ -127,7 +127,7 @@ public:
 	  * @pre
 	  */
 	Cronologia CreaSubCronoPalabra(string palabra);
-	
+
 	/**
 	  * @brief Crea una cronologia a partir de dos años, o si dichos años no estan, de sus años mas proximos
 	  * @param min año minimo del intervalo
@@ -136,28 +136,28 @@ public:
 	  * @pre
 	  */
 	Cronologia CreaSubCronoIntervalo(int min, int max);
-	
+
 	/**
 	  * @brief Escribe la cronologia en un fichero de texto
 	  * @param nombre nombre del fichero donde se escribe
 	  * @pre
 	  */
 	void EscribirCronologia(const char * nombre);
-	
+
 	/**
 	  * @brief Lee una cronologia a partir de un fichero
 	  * @param nombre nombre del fichero de donde se lee
 	  * @pre
 	  */
 	void LeerCronologia(const char * nombre);
-	
+
 	/**
 	  * @brief Sobrecarga del operador =, iguala una cronologia a otra
 	  * @param otra cronologia de la que se copia
 	  * @pre
 	  */
 	Cronologia& operator=(const Cronologia & otra);
-	
+
 	/**
 	  * @brief Suma dos cronologias usando el operador +
 	  * @param otra cronologia a sumar con el objeto implicito
@@ -169,7 +169,7 @@ public:
 	  * @brief Pasa la informacion de la cronología a un string
 	  * @return Devuelve un string con toda la cronologia
 	  * @pre
-	  */	
+	  */
 	string toString();
 };
 
