@@ -1,3 +1,9 @@
+/**
+  * @file fechahistorica.h
+  * @brief Fichero de cabeceras del TDA FechaHistorica
+  *
+  */
+
 #ifndef FECHA
 #define FECHA
 
