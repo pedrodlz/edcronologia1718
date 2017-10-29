@@ -3,18 +3,21 @@
 
 using namespace std;
 
+// Constructor sin argumentos
 FechaHistorica::FechaHistorica(void)
 {
 	anio = 0;
 	num_sucesos = 0;
 }
 
+// Constructor con un argumento
 FechaHistorica::FechaHistorica(const int anio)
 {
 	this->anio = anio;
 	num_sucesos = 0;
 }
 
+// Constructor de copia
 FechaHistorica::FechaHistorica(const FechaHistorica & otra)
 {
 	anio = otra.anio;
@@ -24,31 +27,37 @@ FechaHistorica::FechaHistorica(const FechaHistorica & otra)
 	num_sucesos = otra.num_sucesos;
 }
 
+// Consultor de anio
 int FechaHistorica::GetAnio(void) const
 {
 	return(anio);
 }
 
+// Consultor del vector de sucesos
 Vector_Dinamico<string> FechaHistorica::GetSucesos(void) const
 {
 	return(sucesos);
 }
 
+// Consultor de suscesos concretos dentro del vector
 string FechaHistorica::GetSuceso(const int indice) const
 {
 	return(sucesos[indice]);
 }
 
+// Consultor del numero de sucesos
 int FechaHistorica::GetNumSucesos(void) const
 {
 	return(sucesos.size());
 }
 
+// Modificador de anio
 void FechaHistorica::SetAnio(const int anio)
 {
 	this->anio = anio;
 }
 
+// Metodo para añadir un suceso a la fecha
 void FechaHistorica::AniadeSuceso(const string suceso)
 {
 	if(num_sucesos == sucesos.size())
@@ -57,6 +66,7 @@ void FechaHistorica::AniadeSuceso(const string suceso)
 	num_sucesos++;
 }
 
+// Metodo para eliminar un sucesos de la fecha
 void FechaHistorica::EliminaSuceso(const int indice)
 {
 	int p;
@@ -67,6 +77,7 @@ void FechaHistorica::EliminaSuceso(const int indice)
 	sucesos.resize(p);
 }
 
+// Metodo para buscar una palabra clave en los sucesos
 Vector_Dinamico<bool> FechaHistorica::BuscaPalabraClave(const string clave)
 {
 	Vector_Dinamico<bool> encontrada (num_sucesos);
@@ -80,6 +91,7 @@ Vector_Dinamico<bool> FechaHistorica::BuscaPalabraClave(const string clave)
 	return (encontrada);
 }
 
+// Metodo para construir un string con la informacion de la fecha
 string FechaHistorica::toString()
 {
 	string resultado = "";

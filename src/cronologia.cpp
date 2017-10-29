@@ -5,18 +5,22 @@
 
 using namespace std;
 
+// Constructor sin argumentos
 Cronologia::Cronologia(void){}
 
+// Constructor a partir del nombre de un fichero
 Cronologia::Cronologia(const char * nombre)
 {
 	LeerCronologia(nombre);
 }
 
+// Constructor de copia
 Cronologia::Cronologia(const Cronologia & otra)
 {
 	this->fechas = otra.fechas;
 }
 
+// Metodo para obtener el indice de una fecha dentro de una cronologia
 int Cronologia::BuscaFecha(const int anio)
 {
 	int indice = -1;
@@ -36,6 +40,7 @@ int Cronologia::BuscaFecha(const int anio)
 	return indice;
 }
 
+// Metodo para obtener la primera fecha menor a la indicada como argumento
 int Cronologia::SigFechaMenor(const int anio)
 {
 	int sig_menor = anio;
@@ -50,6 +55,7 @@ int Cronologia::SigFechaMenor(const int anio)
 	return sig_menor;
 }
 
+// Metodo para obtener la primera fecha mayor a la indicada como argumento
 int Cronologia::SigFechaMayor(const int anio)
 {
 	int sig_mayor = anio;
@@ -65,6 +71,7 @@ int Cronologia::SigFechaMayor(const int anio)
 	return sig_mayor;
 }
 
+// Metodo para añadir una fecha a la cronologia de forma ordenada
 void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 {
 	int anio = una_fecha.GetAnio();
@@ -111,6 +118,7 @@ void Cronologia::AniadeFecha(FechaHistorica una_fecha)
 	}
 }
 
+// Metodo para eliminar una fecha de la cronologia
 void Cronologia::EliminaFecha(int anio)
 {
 	if(anio >= MIN_ANIO && anio <= MAX_ANIO){
@@ -127,6 +135,7 @@ void Cronologia::EliminaFecha(int anio)
 	}
 }
 
+// Metodo para la union de dos cronologias
 void Cronologia::UnionCrono(Cronologia cron_aniadir)
 {
 
@@ -135,6 +144,7 @@ void Cronologia::UnionCrono(Cronologia cron_aniadir)
 
 }
 
+// Metodo para crear una cronologia con sucesos que contienen una palabra clave
 Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
 {
 	Vector_Dinamico<bool> sucesos_clave;
@@ -168,6 +178,7 @@ Cronologia Cronologia::CreaSubCronoPalabra(string palabra)
 	return sub_cron;
 }
 
+// Metodo para crear una cronologia dado un intervalo de años
 Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 {
 	Cronologia sub_cron;
@@ -200,6 +211,7 @@ Cronologia Cronologia::CreaSubCronoIntervalo(int min_anio, int max_anio)
 	return sub_cron;
 }
 
+// Metodo para pasar una cronologia a un fichero
 void Cronologia::EscribirCronologia(const char * nombre)
 {
 	ofstream fo (nombre);
@@ -222,6 +234,7 @@ void Cronologia::EscribirCronologia(const char * nombre)
 	fo.close();
 }
 
+// Metodo para leer una cronologia de un fichero
 void Cronologia::LeerCronologia(const char * nombre)
 {
 	ifstream fi (nombre);
@@ -263,6 +276,7 @@ void Cronologia::LeerCronologia(const char * nombre)
 	fi.close();
 }
 
+// Operador =
 Cronologia& Cronologia::operator=(const Cronologia & otra)
 {
 	if(this != &otra){
@@ -271,6 +285,7 @@ Cronologia& Cronologia::operator=(const Cronologia & otra)
 	return *this;
 }
 
+// Operador + para la union de dos cronologias
 Cronologia Cronologia::operator+(const Cronologia & otra)
 {
 	Cronologia tmp (*this);
@@ -280,6 +295,7 @@ Cronologia Cronologia::operator+(const Cronologia & otra)
 	return tmp;
 }
 
+// Metodo para construir un string con la informacion de la cronologia
 string Cronologia::toString()
 {
 	string resultado = "";
