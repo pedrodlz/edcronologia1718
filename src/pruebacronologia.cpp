@@ -22,9 +22,9 @@ int main(int argc, char * argv[]){
    Cronologia mi_cronologia;
    mi_cronologia.LeerCronologia(argv[1]);
 
-   cout << "\n---------------------------------------------------------------------" << 
+   cout << "\n---------------------------------------------------------------------" <<
 	endl << "Contenido de la Cronologia: " << argv[1] << endl;
-	cout << "---------------------------------------------------------------------" << 
+	cout << "---------------------------------------------------------------------" <<
 	endl << endl;
    cout << mi_cronologia.toString();
 
@@ -44,12 +44,12 @@ int main(int argc, char * argv[]){
    Cronologia cronologia_3 = mi_cronologia.CreaSubCronoIntervalo(1923,1940);
 
    cout << "\n----------------------------------------------------------------------" << endl;
-   cout << "Contenido de la cronologia creada a partir del intervalo: " << min_anio 
+   cout << "Contenido de la cronologia creada a partir del intervalo: " << min_anio
 	<< " - " << max_anio << endl;
    cout << "----------------------------------------------------------------------" << endl << endl;
 	cout << cronologia_2.toString();
    cout << "\n----------------------------------------------------------------------" << endl;
-   cout << "Contenido de la cronologia creada a partir del intervalo: " << "1923" 
+   cout << "Contenido de la cronologia creada a partir del intervalo: " << "1923"
 	<< " - 1940" << endl;
    cout << "----------------------------------------------------------------------" << endl << endl;
    cout << cronologia_3.toString();
@@ -84,22 +84,12 @@ int main(int argc, char * argv[]){
 
 	cout << "Contenido de la cronologia creada a partir de la palabra clave '" << clave << "': "
 	<< endl << "****************************************************************************" <<
-	endl << endl; 
+	endl << endl;
 
    Cronologia cronologia_5 = mi_cronologia.CreaSubCronoPalabra(clave);
 
    cout << cronologia_5.toString();
    cout << "----------------------------------------------------------" << endl;
-
-
-   /* Exhibir aquí la funcionalidad programada para el TDA Cronologia / TDA FechaHistorica */
-
-   // Algunas sugerencias:
-   // - Obtener los eventos acaecidos en un año dado
-   // - Obtener la (sub)cronología de eventos históricos acaecidos en [anioDesde, anioHasta], donde anioDesde y anioHasta son proporcionados por el usuario
-   // - Obtener la (sub)cronología de eventos históricos asociados a una palabra clave. Ejemplo: la cronología de eventos asociados a "Einstein"
-   // - Operadores sobre cronologías, ejemplo: Unión de dos cronologías (la cronología resultante debería estar ordenada)
-   // - Cualquier otra funcionalidad que consideréis de interés
 
 
 }
