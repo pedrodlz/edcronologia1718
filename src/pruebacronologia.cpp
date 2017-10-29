@@ -39,11 +39,26 @@ int main(int argc, char * argv[]){
    cout << cronologia_4.toString();
    cout << "----------------------------------------------------------" << endl;
 
-   cronologia_4.EscribirCronologia("prueba2");
+   cout << "Prueba EscribirCronologia" << endl;
 
-   cout << "Buscando palabra clave 'Einstein' en la cronologia.... " << endl << endl;
+   char nombre[10];
 
-   Cronologia cronologia_5 = mi_cronologia.CreaSubCronoPalabra("Einstein");
+   cout << "Indique nombre del fichero en el que guardar la cronologia: ";
+   cin >> nombre;
+
+   cronologia_4.EscribirCronologia(nombre);
+
+   cout << "----------------------------------------------------------" << endl;
+
+   string clave;
+
+   cout << "Indique palabra clave para crear subcronologia: ";
+   cin >> clave;
+
+   cout << endl;
+   cout << "Buscando palabra clave '" << clave << "' en la cronologia.... " << endl << endl;
+
+   Cronologia cronologia_5 = mi_cronologia.CreaSubCronoPalabra(clave);
 
    cout << cronologia_5.toString();
    cout << "----------------------------------------------------------" << endl;
