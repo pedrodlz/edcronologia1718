@@ -16,13 +16,13 @@ $(BIN)/pruebacronologia: $(OBJ)/pruebacronologia.o $(LIB)/libcronolo.a
 	$(CXX) -std=c++11 -L./$(LIB) -o $(BIN)/pruebacronologia $(OBJ)/pruebacronologia.o -lcronolo
 
 $(OBJ)/cronologia.o: $(SRC)/cronologia.cpp $(INC)/cronologia.h
-	$(CXX) -c -std=c++11 $(CPPFLAGS) -o $(OBJ)/cronologia.o $(SRC)/cronologia.cpp
+	$(CXX) -c -std=c++11 -I$(INC) -o $(OBJ)/cronologia.o $(SRC)/cronologia.cpp
 
 $(OBJ)/fechahistorica.o: $(SRC)/fechahistorica.cpp $(INC)/fechahistorica.h
-	$(CXX) -c -std=c++11 $(CPPFLAGS) -o $(OBJ)/fechahistorica.o $(SRC)/fechahistorica.cpp
+	$(CXX) -c -std=c++11 -I$(INC) -o $(OBJ)/fechahistorica.o $(SRC)/fechahistorica.cpp
 
 $(OBJ)/pruebacronologia.o: $(SRC)/pruebacronologia.cpp $(INC)/cronologia.h $(INC)/fechahistorica.h
-	$(CXX) -c -std=c++11 $(CPPFLAGS) -o $(OBJ)/pruebacronologia.o $(SRC)/pruebacronologia.cpp
+	$(CXX) -c -std=c++11 -I$(INC) -o $(OBJ)/pruebacronologia.o $(SRC)/pruebacronologia.cpp
 
 $(LIB)/libcronolo.a: $(OBJ)/fechahistorica.o $(OBJ)/cronologia.o
 	ar rvs $(LIB)/libcronolo.a $(OBJ)/fechahistorica.o $(OBJ)/cronologia.o
