@@ -96,10 +96,10 @@ string FechaHistorica::toString()
 {
 	string resultado = "";
 
-	resultado = to_string(anio) + ": ";
+	resultado = to_string(anio) + ":\n";
 
 	for(int i = 0; i < sucesos.size(); i ++)
-		resultado += sucesos[i] + "\n";
+		resultado += "\t- " + sucesos[i] + "\n";
 
 	return resultado;
 }
