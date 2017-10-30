@@ -17,15 +17,16 @@ int main(int argc, char * argv[]){
     cout<<"No puedo abrir el fichero "<<argv[1]<<endl;
     return 0;
    }
-   f.close();
 
    Cronologia mi_cronologia;
-   mi_cronologia.LeerCronologia(argv[1]);
+   f >> mi_cronologia;
 
+   f.close();
+   
    cout << "\n---------------------------------------------------------------------" <<
-	endl << "Contenido de la Cronologia: " << argv[1] << endl;
-	cout << "---------------------------------------------------------------------" <<
-	endl << endl;
+   endl << "Contenido de la Cronologia: " << argv[1] << endl;
+   cout << "---------------------------------------------------------------------" <<
+   endl << endl;
    cout << mi_cronologia.toString();
 
 	int min_anio,max_anio;
@@ -71,7 +72,16 @@ int main(int argc, char * argv[]){
    cout << "Indique nombre del fichero en el que guardar la cronologia: ";
    cin >> nombre;
 
-   cronologia_4.EscribirCronologia(nombre);
+   ofstream fo (nombre);
+   if (!fo){
+    cout<<"No puedo abrir el fichero "<<nombre<<endl;
+    return 0;
+   }
+
+   fo << cronologia_4;
+
+   fo.close();
+
    cout << "\n----------------------------------------------------------------------" << endl;
    cout << "Creacion de una cronologia a partir de una palabra clave" << endl;
    cout << "----------------------------------------------------------------------" << endl << endl;
@@ -90,6 +100,5 @@ int main(int argc, char * argv[]){
 
    cout << cronologia_5.toString();
    cout << "----------------------------------------------------------" << endl;
-
 
 }
