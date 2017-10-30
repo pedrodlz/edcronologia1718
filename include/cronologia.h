@@ -72,7 +72,19 @@ public:
 	  * @param otra otro objeto de la cronologia
 	  * @pre
 	  */
-	Cronologia(const Cronologia & otra);
+  	Cronologia(const Cronologia & otra);
+
+	/**
+	  * @brief Consultor del atributo fechas
+	  */
+  	Vector_Dinamico<FechaHistorica> GetFechas(void);
+
+	/**
+	  * @brief Consultor de fechas concretas
+	  * @param indice indice de la fecha a consultar
+	  * @pre indice >=0 && indice<num_fechas
+	  */
+  	FechaHistorica GetFecha(const int indice);
 
 	/**
 	  * @brief Busca un año en una cronologia
@@ -145,11 +157,25 @@ public:
 	void EscribirCronologia(const char * nombre);
 
 	/**
+	  * @brief Sobrecarga del operador <<
+	  * @param ostream & flujo de salida
+	  * @param Cronologia & Cronologia sobre la que se va a trabajar
+	  */
+	friend ostream & operator << (ostream &, Cronologia &);
+
+	/**
 	  * @brief Lee una cronologia a partir de un fichero
 	  * @param nombre nombre del fichero de donde se lee
 	  * @pre
 	  */
 	void LeerCronologia(const char * nombre);
+
+	/**
+	  * @brief Sobrecarga del operador >>
+	  * @param ostream & flujo de entrada
+	  * @param Cronologia & Cronologia sobre la que se va a trabajar
+	  */
+	friend istream & operator >> (istream &, Cronologia &);
 
 	/**
 	  * @brief Sobrecarga del operador =, iguala una cronologia a otra

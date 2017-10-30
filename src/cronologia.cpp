@@ -20,6 +20,18 @@ Cronologia::Cronologia(const Cronologia & otra)
 	this->fechas = otra.fechas;
 }
 
+// Consultor de fechas
+Vector_Dinamico<FechaHistorica> Cronologia::GetFechas(void)
+{
+	return(fechas);
+}
+
+// Consultor de fechas
+FechaHistorica Cronologia::GetFecha(const int indice)
+{
+	return(fechas[indice]);
+}
+
 // Metodo para obtener el indice de una fecha dentro de una cronologia
 int Cronologia::BuscaFecha(const int anio)
 {
@@ -220,46 +232,66 @@ void Cronologia::EscribirCronologia(const char * nombre)
 		cerr << "Error: no pudo crearse " << nombre << endl;
 		exit (1);
 	}
-	if(fechas.size() > 0){
-		for(int i = 0; i < fechas.size(); i++){
-			fo << fechas[i].GetAnio();
-			for(int j = 0; j < fechas[i].GetSucesos().size(); j++){
-				fo << "#" << fechas[i].GetSuceso(j);
+
+	fo << *this;
+
+	fo.close();
+}
+
+// Sobrecarga del operador <<
+ostream & operator << (ostream & out, Cronologia & crono)
+{
+	if(crono.GetFechas().size() > 0){
+		for(int i = 0; i < crono.GetFechas().size(); i++){
+			out << crono.GetFecha(i).GetAnio();
+			for(int j = 0; j < crono.GetFecha(i).GetSucesos().size(); j++){
+				out << "#" << crono.GetFecha(i).GetSuceso(j);
 			}
-			fo << '\n';
+			out << '\n';
 		}
 
 	}
-
-	fo.close();
+	return (out);
 }
 
 // Metodo para leer una cronologia de un fichero
 void Cronologia::LeerCronologia(const char * nombre)
 {
 	ifstream fi (nombre);
+	if (!fi){
+	 cout<<"No puedo abrir el fichero "<<nombre<<endl;
+	 exit(1);
+	}
 
+	fi >> *this;
+
+	fi.close();
+}
+
+// Sobrecarga del operador >>
+istream & operator >> (istream & in, Cronologia & crono)
+{
 	char caracter;
 	string anio;
 	string suceso;
 
-	while(!fi.eof()){
+	while(!in.eof()){
 		FechaHistorica fecha;
 		anio = "";
 
 		for (int i = 0; i < 4; i++)
-			anio += fi.get();
+			anio += in.get();
 
-		if(!fi.eof()){
+		if(!in.eof()){
 			fecha.SetAnio(stoi(anio));
 
-			caracter = fi.get();
+			caracter = in.get();
 
 			suceso = "";
 
 			while(caracter != '\n' && caracter != EOF){
 
-				caracter = fi.get();
+				caracter = in.get();
 
 				if(caracter == '#' || caracter == '\n' || caracter == EOF){
 					fecha.AniadeSuceso(suceso);
@@ -269,11 +301,10 @@ void Cronologia::LeerCronologia(const char * nombre)
 					suceso += caracter;
 			}
 
-			AniadeFecha(fecha);
+			crono.AniadeFecha(fecha);
 		}
 	}
-
-	fi.close();
+	return (in);
 }
 
 // Operador =
